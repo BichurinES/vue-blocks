@@ -9,7 +9,6 @@
             @blockSelect="selectBlock"
             @blockDeselect="deselectBlock"
             class="container"/>
-    <VueBlockProperty :property="selectedBlockProperty" @save="saveProperty"/>
     <label>
       <select name="type" v-model="selectedType">
         <template v-for="type in selectBlocksType">
@@ -55,10 +54,13 @@
       return {
         blocks: [
           {
-            name: 'text',
+            type: 'radio',
             title: 'Text',
             family: 'Animations',
             description: 'Show text',
+            answers: [
+              { answer: "Фиксед / синглспид" }, { answer: "Скоростной велосипед" }
+            ],
             fields: [
               {
                 name: 'text',
@@ -73,13 +75,8 @@
                 attr: 'property'
               },
               {
-                name: 'Show',
-                type: 'event',
-                attr: 'input'
-              },
-              {
-                name: 'Hide',
-                type: 'event',
+                name: '',
+                type: 'radio',
                 attr: 'input'
               },
               {
@@ -95,7 +92,7 @@
             ]
           },
           {
-            name: 'animation',
+            type: 'checkbox',
             title: 'Animation',
             family: 'Animations',
             description: 'Show animation',
@@ -107,13 +104,8 @@
                 attr: 'property'
               },
               {
-                name: 'Play',
-                type: 'event',
-                attr: 'input'
-              },
-              {
-                name: 'Stop',
-                type: 'event',
+                name: '',
+                type: 'checkbox',
                 attr: 'input'
               },
               {
@@ -124,7 +116,79 @@
             ]
           },
           {
-            name: 'Chat message',
+            type: 'range',
+            title: 'Animation',
+            family: 'Animations',
+            description: 'Show animation',
+            fields: [
+              {
+                name: 'animation',
+                label: 'Animation',
+                type: 'animation',
+                attr: 'property'
+              },
+              {
+                name: '',
+                type: 'range',
+                attr: 'input'
+              },
+              {
+                name: 'onEnd',
+                type: 'event',
+                attr: 'output'
+              }
+            ]
+          },
+          {
+            type: 'textarea',
+            title: 'Animation',
+            family: 'Animations',
+            description: 'Show animation',
+            fields: [
+              {
+                name: 'animation',
+                label: 'Animation',
+                type: 'animation',
+                attr: 'property'
+              },
+              {
+                name: '',
+                type: 'textarea',
+                attr: 'input'
+              },
+              {
+                name: 'onEnd',
+                type: 'event',
+                attr: 'output'
+              }
+            ]
+          },
+          {
+            type: 'file',
+            title: 'Animation',
+            family: 'Animations',
+            description: 'Show animation',
+            fields: [
+              {
+                name: 'animation',
+                label: 'Animation',
+                type: 'animation',
+                attr: 'property'
+              },
+              {
+                name: '',
+                type: 'file',
+                attr: 'input'
+              },
+              {
+                name: 'onEnd',
+                type: 'event',
+                attr: 'output'
+              }
+            ]
+          },
+          {
+            type: 'Chat message',
             family: 'Events',
             description: '',
             fields: [
@@ -142,7 +206,7 @@
             ]
           },
           {
-            name: 'delay',
+            type: 'delay',
             title: 'Delay',
             family: 'Time',
             description: '',
@@ -167,7 +231,7 @@
             ]
           },
           {
-            name: 'shortcuts',
+            type: 'shortcuts',
             title: 'Shortcuts',
             family: 'Events',
             description: 'Press shortcut for call event',
@@ -186,7 +250,7 @@
             ]
           },
           {
-            name: 'splitter',
+            type: 'splitter',
             title: 'Splitter',
             family: 'Helpers',
             description: 'Press shortcut for call event',
@@ -222,357 +286,197 @@
         scene: {
           blocks: [
             {
-              id: 2,
-              x: -700,
-              y: -69,
-              name: 'Chat message',
-              title: 'Chat message',
-              values: {
-                property: [
+              "0": {
+                "id": 220,
+                "host_id": null,
+                "branch": 1,
+                "index": null,
+                "title": "Определим, где будем кататься",
+                "stage": "Тип покрытия",
+                "img": "",
+                "type": "checkbox",
+                "selection_id": 4,
+                "required": 1,
+                "branch_id": 221,
+                "answers": [
                   {
-                    name: 'message',
-                    type: 'string'
+                    "id": 342,
+                    "question_id": 220,
+                    "branch_id": null,
+                    "host_id": null,
+                    "answer": "По городу",
+                    "selection": 1,
+                    "img": "",
+                    "min": null,
+                    "max": null,
+                    "step": null,
+                    "initial_value": null
+                  },
+                  {
+                    "id": 343,
+                    "question_id": 220,
+                    "branch_id": null,
+                    "host_id": null,
+                    "answer": "По бездорожью",
+                    "selection": 1,
+                    "img": "",
+                    "min": null,
+                    "max": null,
+                    "step": null,
+                    "initial_value": null
+                  },
+                  {
+                    "id": 344,
+                    "question_id": 220,
+                    "branch_id": null,
+                    "host_id": null,
+                    "answer": "По ровному асфальту на большие расстояния",
+                    "selection": 1,
+                    "img": "",
+                    "min": null,
+                    "max": null,
+                    "step": null,
+                    "initial_value": null
+                  },
+                  {
+                    "id": 345,
+                    "question_id": 220,
+                    "branch_id": null,
+                    "host_id": null,
+                    "answer": "Меня интересует велосипед для трюков",
+                    "selection": 1,
+                    "img": "",
+                    "min": null,
+                    "max": null,
+                    "step": null,
+                    "initial_value": null
+                  }
+                ]
+              },
+              "1": {
+                "id": 221,
+                "host_id": null,
+                "branch": 1,
+                "index": null,
+                "title": "Уточним ваш рост?",
+                "stage": "Рост",
+                "img": "",
+                "type": "range",
+                "selection_id": 4,
+                "required": 1,
+                "branch_id": null,
+                "answers": {
+                  "id": 346,
+                  "question_id": 221,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": null,
+                  "selection": 0,
+                  "created_at": null,
+                  "updated_at": null,
+                  "image_answer": null,
+                  "min": null,
+                  "max": null,
+                  "initial_value": null,
+                  "division": null,
+                  "step": null,
+                  "mode": "value"
+                }
+              },
+              "2": {
+                "id": 222,
+                "host_id": null,
+                "branch": 1,
+                "index": null,
+                "title": "Уточним рост ребенка?",
+                "stage": "Рост ребенка",
+                "img": "",
+                "type": "range",
+                "selection_id": 4,
+                "required": 1,
+                "branch_id": null,
+                "answers": {
+                  "id": 347,
+                  "question_id": 222,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": null,
+                  "selection": 0,
+                  "created_at": null,
+                  "updated_at": null,
+                  "image_answer": null,
+                  "min": null,
+                  "max": null,
+                  "initial_value": null,
+                  "division": null,
+                  "step": null,
+                  "mode": "value"
+                }
+              },{
+                "id": 219,
+                "host_id": null,
+                "branch": 0,
+                "index": 1,
+                "title": "Кому подбираем велосипед?",
+                "stage": "Возраст",
+                "img": "",
+                "type": "radio",
+                "selection_id": 4,
+                "required": 1,
+                "branch_id": null,
+                "answers": [
+                  {
+                    "id": 340,
+                    "question_id": 219,
+                    "branch_id": 220,
+                    "host_id": null,
+                    "answer": "Для взрослого",
+                    "selection": 1,
+                    "img": "",
+                    "min": null,
+                    "max": null,
+                    "step": null,
+                    "initial_value": null
+                  },
+                  {
+                    "id": 341,
+                    "question_id": 219,
+                    "branch_id": 222,
+                    "host_id": null,
+                    "answer": "Для ребенка",
+                    "selection": 1,
+                    "img": "",
+                    "min": null,
+                    "max": null,
+                    "step": null,
+                    "initial_value": null
                   }
                 ]
               }
+              ]
             },
-            {
-              id: 4,
-              x: -157,
-              y: -68.5,
-              name: 'text',
-              title: 'Text',
-              values: {
-                property: {
-                  text: {
-                    label: 'Text',
-                    type: 'string'
-                  }
-                }
-              }
-            },
-            {
-              id: 5,
-              x: 136,
-              y: -48.5,
-              name: 'text',
-              title: 'Text',
-              values: {
-                property: {
-                  text: {
-                    label: 'Text',
-                    type: 'string'
-                  }
-                }
-              }
-            },
-            {
-              id: 6,
-              x: -440,
-              y: -15.5,
-              name: 'delay',
-              title: 'Delay',
-              values: {
-                property: {
-                  delay: {
-                    label: 'Delay (s)',
-                    type: 'number',
-                    value: 1
-                  }
-                }
-              }
-            },
-            {
-              id: 7,
-              x: -694,
-              y: 60.5,
-              name: 'shortcuts',
-              title: 'Shortcuts',
-              values: {
-                property: {
-                  keys: {
-                    label: 'Activation keys',
-                    type: 'keys'
-                  }
-                }
-              }
-            },
-            {
-              id: 8,
-              x: -163,
-              y: 59.5,
-              name: 'text',
-              title: 'Text',
-              values: {
-                property: {
-                  text: {
-                    label: 'Text',
-                    type: 'string'
-                  }
-                }
-              }
-            },
-            {
-              id: 9,
-              x: -429,
-              y: 125.5,
-              name: 'delay',
-              title: 'Delay',
-              values: {
-                property: {
-                  delay: {
-                    label: 'Delay (s)',
-                    type: 'number',
-                    value: 1
-                  }
-                }
-              }
-            },
-            {
-              id: 10,
-              x: 126,
-              y: 127.5,
-              name: 'text',
-              title: 'Text',
-              values: {
-                property: {
-                  text: {
-                    label: 'Text',
-                    type: 'string'
-                  }
-                }
-              }
-            },
-            {
-              id: 11,
-              x: -856,
-              y: 252.5,
-              name: 'shortcuts',
-              title: 'Shortcuts',
-              values: {
-                property: {
-                  keys: {
-                    label: 'Activation keys',
-                    type: 'keys'
-                  }
-                }
-              }
-            },
-            {
-              id: 12,
-              x: -616,
-              y: 319.5,
-              name: 'delay',
-              title: 'Delay',
-              values: {
-                property: {
-                  delay: {
-                    label: 'Delay (s)',
-                    type: 'number',
-                    value: 1
-                  }
-                }
-              }
-            },
-            {
-              id: 13,
-              x: -381,
-              y: 252.5,
-              name: 'text',
-              title: 'Text',
-              values: {
-                property: {
-                  text: {
-                    label: 'Text',
-                    type: 'string'
-                  }
-                }
-              }
-            },
-            {
-              id: 14,
-              x: 166,
-              y: 266.5,
-              name: 'text',
-              title: 'Text',
-              values: {
-                property: {
-                  text: {
-                    label: 'Text',
-                    type: 'string'
-                  }
-                }
-              }
-            },
-            {
-              id: 15,
-              x: -149,
-              y: 269.5,
-              name: 'delay',
-              title: 'Delay',
-              values: {
-                property: {
-                  delay: {
-                    label: 'Delay (s)',
-                    type: 'number',
-                    value: 1
-                  }
-                }
-              }
-            },
-            {
-              id: 16,
-              x: 413,
-              y: 267.5,
-              name: 'animation',
-              title: 'Animation',
-              values: {
-                property: {
-                  animation: {
-                    label: 'Animation',
-                    type: 'animation'
-                  }
-                }
-              }
-            },
-            {
-              id: 17,
-              x: 13,
-              y: 380.5,
-              name: 'delay',
-              title: 'Delay',
-              values: {
-                property: {
-                  delay: {
-                    label: 'Delay (s)',
-                    type: 'number',
-                    value: 1
-                  }
-                }
-              }
-            }
+            // {
+            //   id: 2,
+            //   x: -1000,
+            //   y: -69,
+            //   type: 'radio',
+            //   title: 'Обратим внимание на количество скоростей',
+            //   answers: [
+            //     { answer: "Фиксед / синглспид" }, { answer: "Скоростной велосипед" }
+            //   ]
+            // },
+            // {
+            //   id: 4,
+            //   x: -557,
+            //   y: -68.5,
+            //   type: 'checkbox',
+            //   title: 'Определим, где будем кататься',
+            //   answers: [
+            //     { answer: "По городу" }, { answer: "По бездорожью" }, { answer: "По трассе" }, { answer: "Для трюков" }
+            //   ]
+            // }
           ],
-          links: [
-            {
-              id: 3,
-              originID: 2,
-              originSlot: 0,
-              targetID: 4,
-              targetSlot: 0
-            },
-            {
-              id: 6,
-              originID: 7,
-              originSlot: 0,
-              targetID: 8,
-              targetSlot: 0
-            },
-            {
-              id: 7,
-              originID: 7,
-              originSlot: 0,
-              targetID: 9,
-              targetSlot: 0
-            },
-            {
-              id: 8,
-              originID: 9,
-              originSlot: 0,
-              targetID: 10,
-              targetSlot: 0
-            },
-            {
-              id: 9,
-              originID: 9,
-              originSlot: 0,
-              targetID: 8,
-              targetSlot: 1
-            },
-            {
-              id: 10,
-              originID: 2,
-              originSlot: 0,
-              targetID: 6,
-              targetSlot: 0
-            },
-            {
-              id: 11,
-              originID: 6,
-              originSlot: 0,
-              targetID: 4,
-              targetSlot: 1
-            },
-            {
-              id: 12,
-              originID: 4,
-              originSlot: 1,
-              targetID: 5,
-              targetSlot: 0
-            },
-            {
-              id: 13,
-              originID: 11,
-              originSlot: 0,
-              targetID: 13,
-              targetSlot: 0
-            },
-            {
-              id: 14,
-              originID: 11,
-              originSlot: 0,
-              targetID: 12,
-              targetSlot: 0
-            },
-            {
-              id: 15,
-              originID: 12,
-              originSlot: 0,
-              targetID: 13,
-              targetSlot: 1
-            },
-            {
-              id: 16,
-              originID: 13,
-              originSlot: 1,
-              targetID: 15,
-              targetSlot: 0
-            },
-            {
-              id: 17,
-              originID: 15,
-              originSlot: 0,
-              targetID: 14,
-              targetSlot: 0
-            },
-            {
-              id: 18,
-              originID: 14,
-              originSlot: 0,
-              targetID: 16,
-              targetSlot: 0
-            },
-            {
-              id: 19,
-              originID: 14,
-              originSlot: 1,
-              targetID: 16,
-              targetSlot: 1
-            },
-            {
-              id: 20,
-              originID: 15,
-              originSlot: 0,
-              targetID: 17,
-              targetSlot: 0
-            },
-            {
-              id: 21,
-              originID: 17,
-              originSlot: 0,
-              targetID: 14,
-              targetSlot: 1
-            }
-          ],
+          links: [],
           container: {
             centerX: 1042,
             centerY: 140,
@@ -588,7 +492,203 @@
           mouseY: 0,
           top: 0,
           left: 0
-        }
+        },
+        questions: [
+          {
+            id: 162,
+            host_id: null,
+            branch: 1,
+            index: null,
+            title: "Определим, где будем кататься",
+            stage: "Тип покрытия",
+            img: "",
+            type: "checkbox",
+            selection_id: 1,
+            required: 1,
+            branch_id: 163,
+            x: -1000,
+            y: -69,
+            answers: [
+              {
+                "id": 250,
+                "question_id": 162,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "По городу",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null,
+                x: -800,
+                y: -200,
+              },
+              {
+                "id": 251,
+                "question_id": 162,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "По бездорожью",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              },
+              {
+                "id": 252,
+                "question_id": 162,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "По ровному асфальту на большие расстояния",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              },
+              {
+                "id": 253,
+                "question_id": 162,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "Меня интересует велосипед для трюков",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              }
+            ]
+          },
+          {
+            "id": 162,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Уточним ваш рост?",
+            "stage": "Рост",
+            "img": "",
+            "type": "range",
+            "selection_id ": 1,
+            "required": 1,
+            "branch_id": 250,
+            "answers": null,
+            x: -900,
+            y: -200,
+          },
+          {
+            "id": 164,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Уточним рост ребенка?",
+            "stage": "Рост ребенка",
+            "img": "",
+            "type": "range",
+            "selection_id ": 1,
+            "required": 1,
+            "branch_id": null,
+            x: -900,
+            y: -600,
+            "answers": [{
+              "id": 249,
+              "question_id": 1,
+              "branch_id": 164,
+              "host_id": null,
+              "answer": "Для ребенка",
+              "selection": 1,
+              "created_at": null,
+              "updated_at": null,
+              "image_answer": null,
+              "min": null,
+              "max": null,
+              "initial_value": null,
+              "division": null,
+              "step": null,
+              "mode": "value"
+            }]
+          },
+          {
+            "id": 1,
+            "host_id": null,
+            "branch": 0,
+            "index": 1,
+            "title": "Кому подбираем велосипед?",
+            "stage": "Возраст",
+            "img": "",
+            "type": "radio",
+            "selection_id ": 1,
+            "required": 1,
+            "branch_id": null,
+            x: -1000,
+            y: -400,
+            "answers": [
+              {
+                "id": 248,
+                "question_id": 1,
+                "branch_id": 162,
+                "host_id": null,
+                "answer": "Для взрослого",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              },
+              {
+                "id": 249,
+                "question_id": 1,
+                "branch_id": 164,
+                "host_id": null,
+                "answer": "Для ребенка",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              }
+            ]
+          },
+          {
+            "id": 165,
+            "host_id": null,
+            "branch": 0,
+            "index": 4,
+            "title": "Оставьте свои пожелания",
+            "stage": "Пожелания",
+            "img": "",
+            "type": "textarea",
+            "selection_id ": 1,
+            "required": 1,
+            "branch_id": null,
+            "answers": null,
+            x: -600,
+            y: -400
+          },
+          {
+            "id": 166,
+            "host_id": null,
+            "branch": 0,
+            "index": 5,
+            "title": "Если вы мечтаете о какой-то конкретной модели, можете оставить фото велосипеда",
+            "stage": "Фото мечты",
+            "img": "",
+            "type": "file",
+            "selection_id ": 1,
+            "required": 1,
+            "branch_id": null,
+            "answers": null,
+            x: -500,
+            y: -400
+          }
+        ]
       }
     },
     computed: {
@@ -675,6 +775,90 @@
       },
       closeContextMenu () {
         this.contextMenu.isShow = false
+      },
+      createLinks (questions) {
+        // Объект id вопросов, который идут главной линией (не внутри веток)
+        // ключами являются их порядковые index
+        let unbranchedQuestionsId = null;
+        // Индексы таких вопросов
+        let questionIndexes = [];
+
+        // наполнение объектов
+        unbranchedQuestionsId = this.questions.reduce((res, { index, id }) => {
+          if (index > 0) {
+            questionIndexes = [...questionIndexes, index]
+            res[index] = id
+          }
+          return res
+        }, {})
+
+        // сортировка индексов по порядку
+        questionIndexes.sort()
+        let nextId = 0
+
+        // собираем объект линий
+        return this.questions.reduce((res, { id, branch_id, answers }) => {
+          const targetSlot = 0
+          const originID = id
+          let targetID = branch_id
+          // вопросы, которые не содержат поля - answers
+          if (!answers) {
+            if (!targetID) {
+              targetID = unbranchedQuestionsId[questionIndexes[nextId]]
+              nextId++
+            }
+            res.push({
+              id: res.length + 1,
+              originID,
+              originSlot: 0,
+              targetID,
+              targetSlot
+            })
+            return res;
+          }
+
+          // вопросы у которых нет отклонений на ветки
+          if (!branch_id && !answers?.some(({ branch_id }) => branch_id > 0)) {
+            answers.forEach((_, i) => {
+              res.push({
+                id: res.length + 1,
+                originID,
+                originSlot: i,
+                targetID: unbranchedQuestionsId[questionIndexes[nextId]],
+                targetSlot
+              })
+            })
+            nextId++
+            return res
+          }
+
+          // вопросы с веткой (не от каждого отдельного ответа)
+          if (targetID) {
+
+            answers.forEach((_, i) => {
+              res.push({
+                id: res.length + 1,
+                originID,
+                originSlot: i,
+                targetID,
+                targetSlot
+              })
+            })
+            return res
+          }
+
+          // вопросы с веткой от каждого отдельного ответа
+          answers.forEach(({ branch_id }, i) => {
+            res.push({
+              id: res.length + 1,
+              originID,
+              originSlot: i,
+              targetID: branch_id,
+              targetSlot
+            })
+          })
+          return res
+        }, [])
       }
     },
     watch: {
@@ -684,6 +868,10 @@
       scene (newValue) {
         console.log('scene', JSON.stringify(newValue))
       }
+    },
+    beforeMount() {
+      this.scene.links = this.createLinks(this.questions)
+      console.log(this.scene.links)
     }
   }
 </script>

@@ -54,6 +54,7 @@
 
       this.importBlocksContent()
       this.importScene()
+      console.log('finish')
     },
     beforeDestroy () {
       document.documentElement.removeEventListener('mousemove', this.handleMove, true)
@@ -299,7 +300,7 @@
         y += block.y
 
         y += this.optionsForChild.titleHeight
-
+        console.log(slotNumber)
         if (isInput && block.inputs.length > slotNumber) {
         } else if (!isInput && block.outputs.length > slotNumber) {
           x += this.optionsForChild.width
@@ -336,16 +337,18 @@
       },
       linkingStop (targetBlock, slotNumber) {
         if (this.linkStartData && targetBlock && slotNumber > -1) {
-          this.links = this.links.filter(value => {
-            return !(value.targetID === targetBlock.id && value.targetSlot === slotNumber)
-          })
-
           let maxID = Math.max(0, ...this.links.map(function (o) {
             return o.id
           }))
 
           // skip if looping
           if (this.linkStartData.block.id !== targetBlock.id) {
+            const findLink = this.links.find(value => {
+              return value.originID === this.linkStartData.block.id && value.originSlot === this.linkStartData.slotNumber
+            })
+            if (findLink) {
+              this.removeLink (findLink.id)
+            }
             this.links.push({
               id: maxID + 1,
               originID: this.linkStartData.block.id,
@@ -377,7 +380,6 @@
             })
 
             this.linkingStart(findBlock, findLink.originSlot)
-
             this.updateScene()
           }
         }
@@ -394,14 +396,14 @@
         }))
 
         let node = this.nodes.find(n => {
-          return n.name === nodeName
+          return n.type === nodeName
         })
 
         if (!node) {
           return
         }
-        let block = this.createBlock(node, maxID + 1)
-
+        let block = this.createBlock(node, maxID + 1, {})
+        console.log(block)
         // if x or y not set, place block to center
         if (x === undefined || y === undefined) {
           x = (this.$el.clientWidth / 2 - this.centerX) / this.scale
@@ -417,36 +419,24 @@
 
         this.updateScene()
       },
-      createBlock (node, id) {
+      createBlock (node, id, { answers, stage }) {
+
         let inputs = []
         let outputs = []
-        let values = {}
+        if (answers) {
+          outputs = answers.map(({ answer }) => ({
+            name: answer,
+            label: answer
+          }));
+        }
+        
 
         node.fields.forEach(field => {
           if (field.attr === 'input') {
             inputs.push({
-              name: field.name,
-              label: field.label || field.name
+              name: field.type,
+              label: field.label || field.type
             })
-          } else if (field.attr === 'output') {
-            outputs.push({
-              name: field.name,
-              label: field.label || field.name
-            })
-          } else {
-            if (!values[field.attr]) {
-              values[field.attr] = {}
-            }
-
-            let newField = merge({}, field)
-            delete newField['name']
-            delete newField['attr']
-
-            if (!values[field.attr][field.name]) {
-              values[field.attr][field.name] = {}
-            }
-
-            values[field.attr][field.name] = newField
           }
         })
 
@@ -455,11 +445,10 @@
           x: 0,
           y: 0,
           selected: false,
-          name: node.name,
-          title: node.title || node.name,
+          name: node.type,
+          title: stage || node.title || node.type,
           inputs: inputs,
-          outputs: outputs,
-          values: values
+          outputs: outputs
         }
       },
       deselectAll (withoutID = null) {
@@ -506,21 +495,21 @@
       prepareBlocks (blocks) {
         return blocks.map(block => {
           let node = this.nodes.find(n => {
-            return n.name === block.name
+            return n.type === block.type
           })
 
           if (!node) {
             return null
           }
 
-          let newBlock = this.createBlock(node, block.id)
+          let newBlock = this.createBlock(node, block.id, block)
 
           newBlock = merge(newBlock, block, {
             arrayMerge: (d, s) => {
               return s.length === 0 ? d : s
             }
           })
-
+          console.log(newBlock)
           return newBlock
         }).filter(b => {
           return !!b

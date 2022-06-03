@@ -207,6 +207,9 @@
     > header {
       background: #bfbfbf;
       text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       > .delete {
         color: red;
