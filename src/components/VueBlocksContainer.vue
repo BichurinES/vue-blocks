@@ -300,7 +300,6 @@
         y += block.y
 
         y += this.optionsForChild.titleHeight
-        console.log(slotNumber)
         if (isInput && block.inputs.length > slotNumber) {
         } else if (!isInput && block.outputs.length > slotNumber) {
           x += this.optionsForChild.width
@@ -343,19 +342,39 @@
 
           // skip if looping
           if (this.linkStartData.block.id !== targetBlock.id) {
-            const findLink = this.links.find(value => {
-              return value.originID === this.linkStartData.block.id && value.originSlot === this.linkStartData.slotNumber
-            })
-            if (findLink) {
-              this.removeLink (findLink.id)
+            if (this.linkStartData.block.type === 'checkbox') {
+              const findLinks = this.links.filter(value => {
+                return value.originID === this.linkStartData.block.id
+              })
+              if (findLinks?.length) {
+                findLinks.forEach(({ id }) => {
+                  this.removeLink(id)
+                })
+              }
+              this.linkStartData.block.answers.forEach(({ question_id }, i) => {
+                this.links.push({
+                  id: maxID + 1,
+                  originID: question_id,
+                  originSlot: i,
+                  targetID: targetBlock.id,
+                  targetSlot: slotNumber
+                })
+              })
+            } else {
+              const findLink = this.links.find(value => {
+                return value.originID === this.linkStartData.block.id && value.originSlot === this.linkStartData.slotNumber
+              })
+              if (findLink) {
+                this.removeLink(findLink.id)
+              }
+              this.links.push({
+                id: maxID + 1,
+                originID: this.linkStartData.block.id,
+                originSlot: this.linkStartData.slotNumber,
+                targetID: targetBlock.id,
+                targetSlot: slotNumber
+              })
             }
-            this.links.push({
-              id: maxID + 1,
-              originID: this.linkStartData.block.id,
-              originSlot: this.linkStartData.slotNumber,
-              targetID: targetBlock.id,
-              targetSlot: slotNumber
-            })
             this.updateScene()
           }
         }
@@ -403,7 +422,6 @@
           return
         }
         let block = this.createBlock(node, maxID + 1, {})
-        console.log(block)
         // if x or y not set, place block to center
         if (x === undefined || y === undefined) {
           x = (this.$el.clientWidth / 2 - this.centerX) / this.scale
@@ -428,6 +446,8 @@
             name: answer,
             label: answer
           }));
+        } else {
+          outputs = [{ name: '', label: '' }]
         }
         
 
@@ -503,13 +523,11 @@
           }
 
           let newBlock = this.createBlock(node, block.id, block)
-
           newBlock = merge(newBlock, block, {
             arrayMerge: (d, s) => {
               return s.length === 0 ? d : s
             }
           })
-          console.log(newBlock)
           return newBlock
         }).filter(b => {
           return !!b

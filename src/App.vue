@@ -58,9 +58,6 @@
             title: 'Text',
             family: 'Animations',
             description: 'Show text',
-            answers: [
-              { answer: "Фиксед / синглспид" }, { answer: "Скоростной велосипед" }
-            ],
             fields: [
               {
                 name: 'text',
@@ -164,7 +161,7 @@
             ]
           },
           {
-            type: 'file',
+            type: 'image',
             title: 'Animation',
             family: 'Animations',
             description: 'Show animation',
@@ -286,175 +283,215 @@
         scene: {
           blocks: [
             {
-              "0": {
-                "id": 220,
-                "host_id": null,
-                "branch": 1,
-                "index": null,
-                "title": "Определим, где будем кататься",
-                "stage": "Тип покрытия",
-                "img": "",
-                "type": "checkbox",
-                "selection_id": 4,
-                "required": 1,
-                "branch_id": 221,
-                "answers": [
-                  {
-                    "id": 342,
-                    "question_id": 220,
-                    "branch_id": null,
-                    "host_id": null,
-                    "answer": "По городу",
-                    "selection": 1,
-                    "img": "",
-                    "min": null,
-                    "max": null,
-                    "step": null,
-                    "initial_value": null
-                  },
-                  {
-                    "id": 343,
-                    "question_id": 220,
-                    "branch_id": null,
-                    "host_id": null,
-                    "answer": "По бездорожью",
-                    "selection": 1,
-                    "img": "",
-                    "min": null,
-                    "max": null,
-                    "step": null,
-                    "initial_value": null
-                  },
-                  {
-                    "id": 344,
-                    "question_id": 220,
-                    "branch_id": null,
-                    "host_id": null,
-                    "answer": "По ровному асфальту на большие расстояния",
-                    "selection": 1,
-                    "img": "",
-                    "min": null,
-                    "max": null,
-                    "step": null,
-                    "initial_value": null
-                  },
-                  {
-                    "id": 345,
-                    "question_id": 220,
-                    "branch_id": null,
-                    "host_id": null,
-                    "answer": "Меня интересует велосипед для трюков",
-                    "selection": 1,
-                    "img": "",
-                    "min": null,
-                    "max": null,
-                    "step": null,
-                    "initial_value": null
-                  }
-                ]
-              },
-              "1": {
-                "id": 221,
-                "host_id": null,
-                "branch": 1,
-                "index": null,
-                "title": "Уточним ваш рост?",
-                "stage": "Рост",
-                "img": "",
-                "type": "range",
-                "selection_id": 4,
-                "required": 1,
-                "branch_id": null,
-                "answers": {
-                  "id": 346,
-                  "question_id": 221,
+              "id": 220,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Определим, где будем кататься",
+              "stage": "Тип покрытия",
+              "img": "",
+              "type": "checkbox",
+              "selection_id": 4,
+              "required": 1,
+              "branch_id": 221,
+              x: -700,
+              y: 0,
+              "answers": [
+                {
+                  "id": 342,
+                  "question_id": 220,
                   "branch_id": null,
                   "host_id": null,
-                  "answer": null,
-                  "selection": 0,
-                  "created_at": null,
-                  "updated_at": null,
-                  "image_answer": null,
+                  "answer": "По городу",
+                  "selection": 1,
+                  "img": "",
                   "min": null,
                   "max": null,
-                  "initial_value": null,
-                  "division": null,
                   "step": null,
-                  "mode": "value"
-                }
-              },
-              "2": {
-                "id": 222,
-                "host_id": null,
-                "branch": 1,
-                "index": null,
-                "title": "Уточним рост ребенка?",
-                "stage": "Рост ребенка",
-                "img": "",
-                "type": "range",
-                "selection_id": 4,
-                "required": 1,
-                "branch_id": null,
-                "answers": {
-                  "id": 347,
-                  "question_id": 222,
+                  "initial_value": null
+                },
+                {
+                  "id": 343,
+                  "question_id": 220,
                   "branch_id": null,
                   "host_id": null,
-                  "answer": null,
-                  "selection": 0,
-                  "created_at": null,
-                  "updated_at": null,
-                  "image_answer": null,
+                  "answer": "По бездорожью",
+                  "selection": 1,
+                  "img": "",
                   "min": null,
                   "max": null,
-                  "initial_value": null,
-                  "division": null,
                   "step": null,
-                  "mode": "value"
+                  "initial_value": null
+                },
+                {
+                  "id": 344,
+                  "question_id": 220,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": "По ровному асфальту на большие расстояния",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                },
+                {
+                  "id": 345,
+                  "question_id": 220,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": "Меня интересует велосипед для трюков",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
                 }
-              },{
-                "id": 219,
-                "host_id": null,
-                "branch": 0,
-                "index": 1,
-                "title": "Кому подбираем велосипед?",
-                "stage": "Возраст",
-                "img": "",
-                "type": "radio",
-                "selection_id": 4,
-                "required": 1,
-                "branch_id": null,
-                "answers": [
-                  {
-                    "id": 340,
-                    "question_id": 219,
-                    "branch_id": 220,
-                    "host_id": null,
-                    "answer": "Для взрослого",
-                    "selection": 1,
-                    "img": "",
-                    "min": null,
-                    "max": null,
-                    "step": null,
-                    "initial_value": null
-                  },
-                  {
-                    "id": 341,
-                    "question_id": 219,
-                    "branch_id": 222,
-                    "host_id": null,
-                    "answer": "Для ребенка",
-                    "selection": 1,
-                    "img": "",
-                    "min": null,
-                    "max": null,
-                    "step": null,
-                    "initial_value": null
-                  }
-                ]
-              }
               ]
             },
+            {
+              "id": 221,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Уточним ваш рост?",
+              "stage": "Рост",
+              "img": "",
+              "type": "range",
+              "selection_id": 4,
+              "required": 1,
+              "branch_id": null,
+              x: -400,
+              y: 0,
+              "answers": [{
+                "id": 346,
+                "question_id": 221,
+                "branch_id": null,
+                "host_id": null,
+                "answer": null,
+                "selection": 0,
+                "created_at": null,
+                "updated_at": null,
+                "image_answer": null,
+                "min": null,
+                "max": null,
+                "initial_value": null,
+                "division": null,
+                "step": null,
+                "mode": "value"
+              }]
+            },
+            {
+              "id": 222,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Уточним рост ребенка?",
+              "stage": "Рост ребенка",
+              "img": "",
+              "type": "range",
+              "selection_id": 4,
+              "required": 1,
+              "branch_id": null,
+              x: -760,
+              y: 300,
+              "answers": [{
+                "id": 347,
+                "question_id": 222,
+                "branch_id": null,
+                "host_id": null,
+                "answer": null,
+                "selection": 0,
+                "created_at": null,
+                "updated_at": null,
+                "image_answer": null,
+                "min": null,
+                "max": null,
+                "initial_value": null,
+                "division": null,
+                "step": null,
+                "mode": "value"
+              }]
+            },
+            {
+              "id": 219,
+              "host_id": null,
+              "branch": 0,
+              "index": 1,
+              "title": "Кому подбираем велосипед?",
+              "stage": "Возраст",
+              "img": "",
+              "type": "radio",
+              "selection_id": 4,
+              "required": 1,
+              "branch_id": null,
+              x: -1000,
+              y: 150,
+              "answers": [
+                {
+                  "id": 340,
+                  "question_id": 219,
+                  "branch_id": 220,
+                  "host_id": null,
+                  "answer": "Для взрослого",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                },
+                {
+                  "id": 341,
+                  "question_id": 219,
+                  "branch_id": 222,
+                  "host_id": null,
+                  "answer": "Для ребенка",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                }
+              ]
+            },
+            ,
+            {
+              "id": 223,
+              "host_id": null,
+              "branch": 0,
+              "index": 2,
+              "title": "Оставьте свои пожелания",
+              "stage": "Пожелания",
+              "img": "",
+              "type": "textarea",
+              "selection_id": 4,
+              "required": 1,
+              "branch_id": null,
+              "answers": null,
+              x: -135,
+              y: 160,
+            },
+            {
+              "id": 224,
+              "host_id": null,
+              "branch": 0,
+              "index": 3,
+              "title": "Разместите фото",
+              "stage": "Фото",
+              "img": "",
+              "type": "image",
+              "selection_id": 4,
+              "required": 1,
+              "branch_id": null,
+              "answers": null,
+              x: 160,
+              y: 160,
+            }
+            ],
             // {
             //   id: 2,
             //   x: -1000,
@@ -475,12 +512,11 @@
             //     { answer: "По городу" }, { answer: "По бездорожью" }, { answer: "По трассе" }, { answer: "Для трюков" }
             //   ]
             // }
-          ],
           links: [],
           container: {
-            centerX: 1042,
-            centerY: 140,
-            scale: 1
+            centerX: 933,
+            centerY: 172,
+            scale: .9
           }
         },
         selectedBlock: null,
@@ -495,23 +531,21 @@
         },
         questions: [
           {
-            id: 162,
-            host_id: null,
-            branch: 1,
-            index: null,
-            title: "Определим, где будем кататься",
-            stage: "Тип покрытия",
-            img: "",
-            type: "checkbox",
-            selection_id: 1,
-            required: 1,
-            branch_id: 163,
-            x: -1000,
-            y: -69,
-            answers: [
+            "id": 220,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Определим, где будем кататься",
+            "stage": "Тип покрытия",
+            "img": "",
+            "type": "checkbox",
+            "selection_id": 4,
+            "required": 1,
+            "branch_id": 221,
+            "answers": [
               {
-                "id": 250,
-                "question_id": 162,
+                "id": 342,
+                "question_id": 220,
                 "branch_id": null,
                 "host_id": null,
                 "answer": "По городу",
@@ -520,13 +554,11 @@
                 "min": null,
                 "max": null,
                 "step": null,
-                "initial_value": null,
-                x: -800,
-                y: -200,
+                "initial_value": null
               },
               {
-                "id": 251,
-                "question_id": 162,
+                "id": 343,
+                "question_id": 220,
                 "branch_id": null,
                 "host_id": null,
                 "answer": "По бездорожью",
@@ -538,8 +570,8 @@
                 "initial_value": null
               },
               {
-                "id": 252,
-                "question_id": 162,
+                "id": 344,
+                "question_id": 220,
                 "branch_id": null,
                 "host_id": null,
                 "answer": "По ровному асфальту на большие расстояния",
@@ -551,8 +583,8 @@
                 "initial_value": null
               },
               {
-                "id": 253,
-                "question_id": 162,
+                "id": 345,
+                "question_id": 220,
                 "branch_id": null,
                 "host_id": null,
                 "answer": "Меня интересует велосипед для трюков",
@@ -566,7 +598,7 @@
             ]
           },
           {
-            "id": 162,
+            "id": 221,
             "host_id": null,
             "branch": 1,
             "index": null,
@@ -574,34 +606,16 @@
             "stage": "Рост",
             "img": "",
             "type": "range",
-            "selection_id ": 1,
-            "required": 1,
-            "branch_id": 250,
-            "answers": null,
-            x: -900,
-            y: -200,
-          },
-          {
-            "id": 164,
-            "host_id": null,
-            "branch": 1,
-            "index": null,
-            "title": "Уточним рост ребенка?",
-            "stage": "Рост ребенка",
-            "img": "",
-            "type": "range",
-            "selection_id ": 1,
+            "selection_id": 4,
             "required": 1,
             "branch_id": null,
-            x: -900,
-            y: -600,
             "answers": [{
-              "id": 249,
-              "question_id": 1,
-              "branch_id": 164,
+              "id": 346,
+              "question_id": 221,
+              "branch_id": null,
               "host_id": null,
-              "answer": "Для ребенка",
-              "selection": 1,
+              "answer": null,
+              "selection": 0,
               "created_at": null,
               "updated_at": null,
               "image_answer": null,
@@ -614,7 +628,37 @@
             }]
           },
           {
-            "id": 1,
+            "id": 222,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Уточним рост ребенка?",
+            "stage": "Рост ребенка",
+            "img": "",
+            "type": "range",
+            "selection_id": 4,
+            "required": 1,
+            "branch_id": null,
+            "answers": [{
+              "id": 347,
+              "question_id": 222,
+              "branch_id": null,
+              "host_id": null,
+              "answer": null,
+              "selection": 0,
+              "created_at": null,
+              "updated_at": null,
+              "image_answer": null,
+              "min": null,
+              "max": null,
+              "initial_value": null,
+              "division": null,
+              "step": null,
+              "mode": "value"
+            }]
+          },
+          {
+            "id": 219,
             "host_id": null,
             "branch": 0,
             "index": 1,
@@ -622,16 +666,14 @@
             "stage": "Возраст",
             "img": "",
             "type": "radio",
-            "selection_id ": 1,
+            "selection_id": 4,
             "required": 1,
             "branch_id": null,
-            x: -1000,
-            y: -400,
             "answers": [
               {
-                "id": 248,
-                "question_id": 1,
-                "branch_id": 162,
+                "id": 340,
+                "question_id": 219,
+                "branch_id": 220,
                 "host_id": null,
                 "answer": "Для взрослого",
                 "selection": 1,
@@ -642,9 +684,9 @@
                 "initial_value": null
               },
               {
-                "id": 249,
-                "question_id": 1,
-                "branch_id": 164,
+                "id": 341,
+                "question_id": 219,
+                "branch_id": 222,
                 "host_id": null,
                 "answer": "Для ребенка",
                 "selection": 1,
@@ -657,36 +699,32 @@
             ]
           },
           {
-            "id": 165,
+            "id": 223,
             "host_id": null,
             "branch": 0,
-            "index": 4,
+            "index": 2,
             "title": "Оставьте свои пожелания",
             "stage": "Пожелания",
             "img": "",
             "type": "textarea",
-            "selection_id ": 1,
+            "selection_id": 4,
             "required": 1,
             "branch_id": null,
-            "answers": null,
-            x: -600,
-            y: -400
+            "answers": null
           },
           {
-            "id": 166,
+            "id": 224,
             "host_id": null,
             "branch": 0,
-            "index": 5,
-            "title": "Если вы мечтаете о какой-то конкретной модели, можете оставить фото велосипеда",
-            "stage": "Фото мечты",
+            "index": 3,
+            "title": "Разместите фото",
+            "stage": "Фото",
             "img": "",
-            "type": "file",
-            "selection_id ": 1,
+            "type": "image",
+            "selection_id": 4,
             "required": 1,
             "branch_id": null,
-            "answers": null,
-            x: -500,
-            y: -400
+            "answers": null
           }
         ]
       }
@@ -777,96 +815,132 @@
         this.contextMenu.isShow = false
       },
       createLinks (questions) {
+        // ВСПОМОГАТЕЛЬНЫЕ ОБЪЕКТЫ И МАССИВЫ
+        // Массивы вопросов: основная линия и ветки
+        const branchQuestions = []
+        const mainQuestions = []
+
         // Объект id вопросов, который идут главной линией (не внутри веток)
         // ключами являются их порядковые index
-        let unbranchedQuestionsId = null;
-        // Индексы таких вопросов
-        let questionIndexes = [];
+        let mainQuestionsId = {}
+        // Отсортированный массив с индексами вопросов,
+        // чтобы проще находить следующий основной вопрос
+        let questionIndexes = []
 
-        // наполнение объектов
-        unbranchedQuestionsId = this.questions.reduce((res, { index, id }) => {
-          if (index > 0) {
-            questionIndexes = [...questionIndexes, index]
-            res[index] = id
+        // Объект с вопросами, заканчивающих ветки, и хранящие индекс вопроса из основной линии,
+        // который создал ветку
+        const branchParentIndexes = {}
+
+        // Функция поиска ближайщего потомка, создавшего ветку,
+        // и сохранение его индекса в соответствующий объект
+        function findParentIndex (id, originId) {
+          // Сначала ищем среди основной линии, так как есть вероятность ранннего выхода
+          const mainParent = mainQuestions.find((mainQuestion) => {
+            return mainQuestion.branch_id === id || mainQuestion.answers?.some(mainQuestionAnswer => mainQuestionAnswer.branch_id === id)
+          })
+          if (mainParent) {
+            branchParentIndexes[originId || id] = mainParent.index
+            return
           }
-          return res
-        }, {})
+          // Если не нашли в основной линии, ищем среди других веток, и далее повторяем,
+          // пока не найдем родителя из основной линии
+          const branchParent = branchQuestions.find((branchQuestion) => {
+            return branchQuestion.branch_id === id ||  branchQuestion.answers?.some(branchQuestionAnswer => branchQuestionAnswer.branch_id === id)
+          })
+          if (branchParent) {
+            return findParentIndex(branchParent.id, originId || id)
+          }
+        }
+
+        // Наполнение вспомогательных объектов и массивов
+        // (mainQuestions, mainQuestionsId, questionIndexes, branchQuestions)
+        questions.forEach((item) => {
+          if (item.index) {
+            mainQuestions.push(item)
+            mainQuestionsId[item.index] = item.id
+            questionIndexes.push(item.index)
+            return
+          }
+          if (+item.branch) {
+            branchQuestions.push(item)
+            return
+          }
+        })
 
         // сортировка индексов по порядку
         questionIndexes.sort()
-        let nextId = 0
 
-        // собираем объект линий
-        return this.questions.reduce((res, { id, branch_id, answers }) => {
+        // Сохранение информации о родителях из основной ветки для вопросов,
+        // заканчивающих ветки
+        branchQuestions.forEach(({ id, answers, branch_id }) => {
+          if (!branch_id && !answers?.some(({ branch_id }) => branch_id)) {
+            findParentIndex(id)
+          }
+        })
+
+        // СОБИРАЕМ ОБЪЕКТ ЛИНИЙ
+        return questions.reduce((res, { id, branch_id, answers, index }) => {
           const targetSlot = 0
           const originID = id
           let targetID = branch_id
-          // вопросы, которые не содержат поля - answers
-          if (!answers) {
-            if (!targetID) {
-              targetID = unbranchedQuestionsId[questionIndexes[nextId]]
-              nextId++
-            }
+
+          // Функция для добавления новой связи в результат
+          function addLink (_, i) {
             res.push({
               id: res.length + 1,
               originID,
-              originSlot: 0,
+              originSlot: i,
               targetID,
               targetSlot
             })
+          }
+
+          // вопросы, у которых нет поля ответов или там не массив
+          if (!answers || !Array.isArray(answers)) {
+            if (!targetID) {
+              if (index) {
+                const nextIndex = questionIndexes[questionIndexes.indexOf(index) + 1]
+                targetID = mainQuestionsId[nextIndex]
+              }
+              if (branchParentIndexes[originID]) {
+                const nextIndex = questionIndexes[questionIndexes.indexOf(branchParentIndexes[originID]) + 1]
+                targetID = mainQuestionsId[nextIndex]
+              }
+            }
+            addLink(null, 0)
             return res;
           }
 
-          // вопросы у которых нет отклонений на ветки
+          // вопросы, у которых нет информации о следующей цели (либо окончание веток,
+          // либо вопрос из основной линии, либо конец всей подборки)
           if (!branch_id && !answers?.some(({ branch_id }) => branch_id > 0)) {
-            answers.forEach((_, i) => {
-              res.push({
-                id: res.length + 1,
-                originID,
-                originSlot: i,
-                targetID: unbranchedQuestionsId[questionIndexes[nextId]],
-                targetSlot
-              })
-            })
-            nextId++
+            if (index) {
+              const nextIndex = questionIndexes[questionIndexes.indexOf(index) + 1]
+              targetID = mainQuestionsId[nextIndex]
+            }
+            if (branchParentIndexes[originID]) {
+              const nextIndex = questionIndexes[questionIndexes.indexOf(branchParentIndexes[originID]) + 1]
+              targetID = mainQuestionsId[nextIndex]
+            }
+            answers.forEach(addLink)
             return res
           }
 
           // вопросы с веткой (не от каждого отдельного ответа)
           if (targetID) {
-
-            answers.forEach((_, i) => {
-              res.push({
-                id: res.length + 1,
-                originID,
-                originSlot: i,
-                targetID,
-                targetSlot
-              })
-            })
+            answers.forEach(addLink)
             return res
           }
 
           // вопросы с веткой от каждого отдельного ответа
           answers.forEach(({ branch_id }, i) => {
-            res.push({
-              id: res.length + 1,
-              originID,
-              originSlot: i,
-              targetID: branch_id,
-              targetSlot
-            })
+            targetID = branch_id
+            if (targetID) {
+              addLink(null, i)
+            }
           })
           return res
         }, [])
-      }
-    },
-    watch: {
-      blocks (newValue) {
-        console.log('blocks', JSON.stringify(newValue))
-      },
-      scene (newValue) {
-        console.log('scene', JSON.stringify(newValue))
       }
     },
     beforeMount() {
