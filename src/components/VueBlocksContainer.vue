@@ -166,7 +166,7 @@
             x2: x2,
             y2: y2,
             style: {
-              stroke: '#F85',
+              stroke: '#828deb',
               strokeWidth: 4 * this.scale,
               fill: 'none'
             },
@@ -308,8 +308,8 @@
           return undefined
         }
 
-        // (height / 2 + blockBorder + padding)
-        y += (16 / 2 + 1 + 2)
+        // (height / 2 + blockBorder + padding + marginBottom)
+        y += (16 / 2 + 2 + 9 + 4)
         //  + (height * slotNumber)
         y += (16 * slotNumber)
 
@@ -438,18 +438,22 @@
         this.updateScene()
       },
       createBlock (node, id, { answers, stage }) {
-
         let inputs = []
         let outputs = []
-        if (answers) {
+
+        if (answers && Array.isArray(answers)) {
           outputs = answers.map(({ answer }) => ({
             name: answer,
             label: answer
           }));
+        } else if (answers?.answer) {
+          outputs = [{
+            name: answer,
+            label: answer
+          }]
         } else {
           outputs = [{ name: '', label: '' }]
         }
-        
 
         node.fields.forEach(field => {
           if (field.attr === 'input') {
@@ -633,5 +637,6 @@
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
+    background-color: #f2f2f2;
   }
 </style>

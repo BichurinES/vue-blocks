@@ -9,31 +9,31 @@
             @blockSelect="selectBlock"
             @blockDeselect="deselectBlock"
             class="container"/>
-    <label>
-      <select name="type" v-model="selectedType">
-        <template v-for="type in selectBlocksType">
-          <optgroup :label="type">
-            <option v-for="block in filteredBlocks(type)" :value="block.name">{{block.title || block.name}}</option>
-          </optgroup>
-        </template>
-      </select>
-    </label>
-    <button @click.stop="addBlock">Add</button>
-    |
-    <label for="useContextMenu">
-      <input type="checkbox" v-model="useContextMenu" id="useContextMenu">Use right click for Add blocks
-    </label>
+<!--    <label>-->
+<!--      <select name="type" v-model="selectedType">-->
+<!--        <template v-for="type in selectBlocksType">-->
+<!--          <optgroup :label="type">-->
+<!--            <option v-for="block in filteredBlocks(type)" :value="block.name">{{block.title || block.name}}</option>-->
+<!--          </optgroup>-->
+<!--        </template>-->
+<!--      </select>-->
+<!--    </label>-->
+<!--    <button @click.stop="addBlock">Add</button>-->
+<!--    |-->
+<!--    <label for="useContextMenu">-->
+<!--      <input type="checkbox" v-model="useContextMenu" id="useContextMenu">Use right click for Add blocks-->
+<!--    </label>-->
 
-    <ul id="contextMenu" ref="contextMenu" tabindex="-1" v-show="contextMenu.isShow"
-        @blur="closeContextMenu"
-        :style="{top: contextMenu.top + 'px', left: contextMenu.left + 'px'}">
-      <template v-for="type in selectBlocksType">
-        <li class="label">{{type}}</li>
-        <li v-for="block in filteredBlocks(type)"
-            @click="addBlockContextMenu(block.name)">{{block.title || block.name}}
-        </li>
-      </template>
-    </ul>
+<!--    <ul id="contextMenu" ref="contextMenu" tabindex="-1" v-show="contextMenu.isShow"-->
+<!--        @blur="closeContextMenu"-->
+<!--        :style="{top: contextMenu.top + 'px', left: contextMenu.left + 'px'}">-->
+<!--      <template v-for="type in selectBlocksType">-->
+<!--        <li class="label">{{type}}</li>-->
+<!--        <li v-for="block in filteredBlocks(type)"-->
+<!--            @click="addBlockContextMenu(block.name)">{{block.title || block.name}}-->
+<!--        </li>-->
+<!--      </template>-->
+<!--    </ul>-->
   </div>
 </template>
 
@@ -283,7 +283,71 @@
         scene: {
           blocks: [
             {
-              "id": 220,
+              "id": 336,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Уточним ваш рост?",
+              "stage": "Рост",
+              "img": "",
+              "type": "range",
+              "selection_id": 6,
+              "required": 1,
+              "branch_id": 338,
+              x: -800,
+              y: 170,
+              "answers": {
+                "id": 546,
+                "question_id": 336,
+                "branch_id": null,
+                "host_id": null,
+                "answer": null,
+                "selection": 0,
+                "created_at": null,
+                "updated_at": null,
+                "image_answer": null,
+                "min": null,
+                "max": null,
+                "initial_value": null,
+                "division": null,
+                "step": null,
+                "mode": "value"
+              }
+            },
+            {
+              "id": 337,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Укажите рост ребенка",
+              "stage": "Рост ребенка",
+              "img": "",
+              "type": "range",
+              "selection_id": 6,
+              "required": 1,
+              "branch_id": null,
+              x: -800,
+              y: 450,
+              "answers": {
+                "id": 575,
+                "question_id": 337,
+                "branch_id": null,
+                "host_id": null,
+                "answer": null,
+                "selection": 0,
+                "created_at": null,
+                "updated_at": null,
+                "image_answer": null,
+                "min": null,
+                "max": null,
+                "initial_value": null,
+                "division": null,
+                "step": null,
+                "mode": "value"
+              }
+            },
+            {
+              "id": 338,
               "host_id": null,
               "branch": 1,
               "index": null,
@@ -291,15 +355,15 @@
               "stage": "Тип покрытия",
               "img": "",
               "type": "checkbox",
-              "selection_id": 4,
+              "selection_id": 6,
               "required": 1,
-              "branch_id": 221,
-              x: -700,
-              y: 0,
+              "branch_id": 339,
+              x: -690,
+              y: -110,
               "answers": [
                 {
-                  "id": 342,
-                  "question_id": 220,
+                  "id": 551,
+                  "question_id": 338,
                   "branch_id": null,
                   "host_id": null,
                   "answer": "По городу",
@@ -311,8 +375,8 @@
                   "initial_value": null
                 },
                 {
-                  "id": 343,
-                  "question_id": 220,
+                  "id": 552,
+                  "question_id": 338,
                   "branch_id": null,
                   "host_id": null,
                   "answer": "По бездорожью",
@@ -324,8 +388,8 @@
                   "initial_value": null
                 },
                 {
-                  "id": 344,
-                  "question_id": 220,
+                  "id": 553,
+                  "question_id": 338,
                   "branch_id": null,
                   "host_id": null,
                   "answer": "По ровному асфальту на большие расстояния",
@@ -337,8 +401,8 @@
                   "initial_value": null
                 },
                 {
-                  "id": 345,
-                  "question_id": 220,
+                  "id": 554,
+                  "question_id": 338,
                   "branch_id": null,
                   "host_id": null,
                   "answer": "Меня интересует велосипед для трюков",
@@ -352,22 +416,65 @@
               ]
             },
             {
-              "id": 221,
+              "id": 339,
               "host_id": null,
               "branch": 1,
               "index": null,
-              "title": "Уточним ваш рост?",
-              "stage": "Рост",
+              "title": "Укажите пол",
+              "stage": "Пол",
               "img": "",
-              "type": "range",
-              "selection_id": 4,
+              "type": "radio",
+              "selection_id": 6,
               "required": 1,
               "branch_id": null,
-              x: -400,
-              y: 0,
-              "answers": [{
-                "id": 346,
-                "question_id": 221,
+              x: -390,
+              y: -110,
+              "answers": [
+                {
+                  "id": 555,
+                  "question_id": 339,
+                  "branch_id": 340,
+                  "host_id": null,
+                  "answer": "Мужской",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                },
+                {
+                  "id": 556,
+                  "question_id": 339,
+                  "branch_id": 341,
+                  "host_id": null,
+                  "answer": "Женский",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                }
+              ]
+            },
+            {
+              "id": 340,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Выберет свой вес",
+              "stage": "Вес",
+              "img": "",
+              "type": "range",
+              "selection_id": 6,
+              "required": 1,
+              "branch_id": null,
+              x: -90,
+              y: -110,
+              "answers": {
+                "id": 557,
+                "question_id": 340,
                 "branch_id": null,
                 "host_id": null,
                 "answer": null,
@@ -381,25 +488,167 @@
                 "division": null,
                 "step": null,
                 "mode": "value"
-              }]
+              }
             },
             {
-              "id": 222,
+              "id": 341,
               "host_id": null,
               "branch": 1,
               "index": null,
-              "title": "Уточним рост ребенка?",
-              "stage": "Рост ребенка",
+              "title": "Выберете желаемый цвет",
+              "stage": "Цвет",
               "img": "",
-              "type": "range",
-              "selection_id": 4,
+              "type": "radio",
+              "selection_id": 6,
               "required": 1,
               "branch_id": null,
-              x: -760,
-              y: 300,
-              "answers": [{
-                "id": 347,
-                "question_id": 222,
+              x: -450,
+              y: 70,
+              "answers": [
+                {
+                  "id": 564,
+                  "question_id": 341,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": "Красный",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                },
+                {
+                  "id": 565,
+                  "question_id": 341,
+                  "branch_id": 342,
+                  "host_id": null,
+                  "answer": "Белый",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                },
+                {
+                  "id": 566,
+                  "question_id": 341,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": "Синий",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                }
+              ]
+            },
+            {
+              "id": 342,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Вы уверены?",
+              "stage": "Уверены?",
+              "img": "",
+              "type": "radio",
+              "selection_id": 6,
+              "required": 1,
+              "branch_id": null,
+              x: -200,
+              y: 70,
+              "answers": [
+                {
+                  "id": 567,
+                  "question_id": 342,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": "Да",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                },
+                {
+                  "id": 568,
+                  "question_id": 342,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": "Нет",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                }
+              ]
+            },
+            {
+              "id": 344,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Сколько скоростей интересует",
+              "stage": null,
+              "img": "",
+              "type": "radio",
+              "selection_id": 6,
+              "required": 1,
+              "branch_id": null,
+              x: 300,
+              y: 208,
+              "answers": [
+                {
+                  "id": 571,
+                  "question_id": 344,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": "До 20",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                },
+                {
+                  "id": 572,
+                  "question_id": 344,
+                  "branch_id": 345,
+                  "host_id": null,
+                  "answer": "Больше 20",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                }
+              ]
+            },
+            {
+              "id": 345,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Какую сумму вы готовы выделить на покупку?",
+              "stage": "Стоимость",
+              "img": "",
+              "type": "range",
+              "selection_id": 6,
+              "required": 1,
+              "branch_id": 347,
+              x: 550,
+              y: 208,
+              "answers": {
+                "id": 573,
+                "question_id": 345,
                 "branch_id": null,
                 "host_id": null,
                 "answer": null,
@@ -413,10 +662,26 @@
                 "division": null,
                 "step": null,
                 "mode": "value"
-              }]
+              }
             },
             {
-              "id": 219,
+              "id": 347,
+              "host_id": null,
+              "branch": 1,
+              "index": null,
+              "title": "Оставьте дополнительные пожелания",
+              "stage": "Пожелания",
+              "img": "",
+              "type": "textarea",
+              "selection_id": 6,
+              "required": 1,
+              "branch_id": null,
+              "answers": null,
+              x: -50,
+              y: 430
+            },
+            {
+              "id": 335,
               "host_id": null,
               "branch": 0,
               "index": 1,
@@ -424,16 +689,16 @@
               "stage": "Возраст",
               "img": "",
               "type": "radio",
-              "selection_id": 4,
+              "selection_id": 6,
               "required": 1,
               "branch_id": null,
-              x: -1000,
-              y: 150,
+              x: -1030,
+              y: 300,
               "answers": [
                 {
-                  "id": 340,
-                  "question_id": 219,
-                  "branch_id": 220,
+                  "id": 544,
+                  "question_id": 335,
+                  "branch_id": 336,
                   "host_id": null,
                   "answer": "Для взрослого",
                   "selection": 1,
@@ -444,9 +709,9 @@
                   "initial_value": null
                 },
                 {
-                  "id": 341,
-                  "question_id": 219,
-                  "branch_id": 222,
+                  "id": 545,
+                  "question_id": 335,
+                  "branch_id": 337,
                   "host_id": null,
                   "answer": "Для ребенка",
                   "selection": 1,
@@ -458,25 +723,51 @@
                 }
               ]
             },
-            ,
             {
-              "id": 223,
+              "id": 343,
               "host_id": null,
               "branch": 0,
               "index": 2,
-              "title": "Оставьте свои пожелания",
-              "stage": "Пожелания",
+              "title": "Сколько скоростей интересует",
+              "stage": null,
               "img": "",
-              "type": "textarea",
-              "selection_id": 4,
+              "type": "radio",
+              "selection_id": 6,
               "required": 1,
               "branch_id": null,
-              "answers": null,
-              x: -135,
-              y: 160,
+              x: 53,
+              y: 208,
+              "answers": [
+                {
+                  "id": 569,
+                  "question_id": 343,
+                  "branch_id": null,
+                  "host_id": null,
+                  "answer": "Одна",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                },
+                {
+                  "id": 570,
+                  "question_id": 343,
+                  "branch_id": 344,
+                  "host_id": null,
+                  "answer": "Много",
+                  "selection": 1,
+                  "img": "",
+                  "min": null,
+                  "max": null,
+                  "step": null,
+                  "initial_value": null
+                }
+              ]
             },
             {
-              "id": 224,
+              "id": 346,
               "host_id": null,
               "branch": 0,
               "index": 3,
@@ -484,14 +775,14 @@
               "stage": "Фото",
               "img": "",
               "type": "image",
-              "selection_id": 4,
+              "selection_id": 6,
               "required": 1,
               "branch_id": null,
               "answers": null,
-              x: 160,
-              y: 160,
+              x: 250,
+              y: 430
             }
-            ],
+          ],
             // {
             //   id: 2,
             //   x: -1000,
@@ -531,7 +822,67 @@
         },
         questions: [
           {
-            "id": 220,
+            "id": 336,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Уточним ваш рост?",
+            "stage": "Рост",
+            "img": "",
+            "type": "range",
+            "selection_id": 6,
+            "required": 1,
+            "branch_id": 338,
+            "answers": {
+              "id": 546,
+              "question_id": 336,
+              "branch_id": null,
+              "host_id": null,
+              "answer": null,
+              "selection": 0,
+              "created_at": null,
+              "updated_at": null,
+              "image_answer": null,
+              "min": null,
+              "max": null,
+              "initial_value": null,
+              "division": null,
+              "step": null,
+              "mode": "value"
+            }
+          },
+          {
+            "id": 337,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Укажите рост ребенка",
+            "stage": "Рост ребенка",
+            "img": "",
+            "type": "range",
+            "selection_id": 6,
+            "required": 1,
+            "branch_id": null,
+            "answers": {
+              "id": 575,
+              "question_id": 337,
+              "branch_id": null,
+              "host_id": null,
+              "answer": null,
+              "selection": 0,
+              "created_at": null,
+              "updated_at": null,
+              "image_answer": null,
+              "min": null,
+              "max": null,
+              "initial_value": null,
+              "division": null,
+              "step": null,
+              "mode": "value"
+            }
+          },
+          {
+            "id": 338,
             "host_id": null,
             "branch": 1,
             "index": null,
@@ -539,13 +890,13 @@
             "stage": "Тип покрытия",
             "img": "",
             "type": "checkbox",
-            "selection_id": 4,
+            "selection_id": 6,
             "required": 1,
-            "branch_id": 221,
+            "branch_id": 339,
             "answers": [
               {
-                "id": 342,
-                "question_id": 220,
+                "id": 551,
+                "question_id": 338,
                 "branch_id": null,
                 "host_id": null,
                 "answer": "По городу",
@@ -557,8 +908,8 @@
                 "initial_value": null
               },
               {
-                "id": 343,
-                "question_id": 220,
+                "id": 552,
+                "question_id": 338,
                 "branch_id": null,
                 "host_id": null,
                 "answer": "По бездорожью",
@@ -570,8 +921,8 @@
                 "initial_value": null
               },
               {
-                "id": 344,
-                "question_id": 220,
+                "id": 553,
+                "question_id": 338,
                 "branch_id": null,
                 "host_id": null,
                 "answer": "По ровному асфальту на большие расстояния",
@@ -583,8 +934,8 @@
                 "initial_value": null
               },
               {
-                "id": 345,
-                "question_id": 220,
+                "id": 554,
+                "question_id": 338,
                 "branch_id": null,
                 "host_id": null,
                 "answer": "Меня интересует велосипед для трюков",
@@ -598,20 +949,61 @@
             ]
           },
           {
-            "id": 221,
+            "id": 339,
             "host_id": null,
             "branch": 1,
             "index": null,
-            "title": "Уточним ваш рост?",
-            "stage": "Рост",
+            "title": "Укажите пол",
+            "stage": "Пол",
             "img": "",
-            "type": "range",
-            "selection_id": 4,
+            "type": "radio",
+            "selection_id": 6,
             "required": 1,
             "branch_id": null,
-            "answers": [{
-              "id": 346,
-              "question_id": 221,
+            "answers": [
+              {
+                "id": 555,
+                "question_id": 339,
+                "branch_id": 340,
+                "host_id": null,
+                "answer": "Мужской",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              },
+              {
+                "id": 556,
+                "question_id": 339,
+                "branch_id": 341,
+                "host_id": null,
+                "answer": "Женский",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              }
+            ]
+          },
+          {
+            "id": 340,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Выберет свой вес",
+            "stage": "Вес",
+            "img": "",
+            "type": "range",
+            "selection_id": 6,
+            "required": 1,
+            "branch_id": null,
+            "answers": {
+              "id": 557,
+              "question_id": 340,
               "branch_id": null,
               "host_id": null,
               "answer": null,
@@ -625,23 +1017,159 @@
               "division": null,
               "step": null,
               "mode": "value"
-            }]
+            }
           },
           {
-            "id": 222,
+            "id": 341,
             "host_id": null,
             "branch": 1,
             "index": null,
-            "title": "Уточним рост ребенка?",
-            "stage": "Рост ребенка",
+            "title": "Выберете желаемый цвет",
+            "stage": "Цвет",
             "img": "",
-            "type": "range",
-            "selection_id": 4,
+            "type": "radio",
+            "selection_id": 6,
             "required": 1,
             "branch_id": null,
-            "answers": [{
-              "id": 347,
-              "question_id": 222,
+            "answers": [
+              {
+                "id": 564,
+                "question_id": 341,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "Красный",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              },
+              {
+                "id": 565,
+                "question_id": 341,
+                "branch_id": 342,
+                "host_id": null,
+                "answer": "Белый",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              },
+              {
+                "id": 566,
+                "question_id": 341,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "Синий",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              }
+            ]
+          },
+          {
+            "id": 342,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Вы уверены?",
+            "stage": "Уверены?",
+            "img": "",
+            "type": "radio",
+            "selection_id": 6,
+            "required": 1,
+            "branch_id": null,
+            "answers": [
+              {
+                "id": 567,
+                "question_id": 342,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "Да",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              },
+              {
+                "id": 568,
+                "question_id": 342,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "Нет",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              }
+            ]
+          },
+          {
+            "id": 344,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Сколько скоростей интересует",
+            "stage": null,
+            "img": "",
+            "type": "radio",
+            "selection_id": 6,
+            "required": 1,
+            "branch_id": null,
+            "answers": [
+              {
+                "id": 571,
+                "question_id": 344,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "До 20",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              },
+              {
+                "id": 572,
+                "question_id": 344,
+                "branch_id": 345,
+                "host_id": null,
+                "answer": "Больше 20",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              }
+            ]
+          },
+          {
+            "id": 345,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Какую сумму вы готовы выделить на покупку?",
+            "stage": "Стоимость",
+            "img": "",
+            "type": "range",
+            "selection_id": 6,
+            "required": 1,
+            "branch_id": 347,
+            "answers": {
+              "id": 573,
+              "question_id": 345,
               "branch_id": null,
               "host_id": null,
               "answer": null,
@@ -655,10 +1183,24 @@
               "division": null,
               "step": null,
               "mode": "value"
-            }]
+            }
           },
           {
-            "id": 219,
+            "id": 347,
+            "host_id": null,
+            "branch": 1,
+            "index": null,
+            "title": "Оставьте дополнительные пожелания",
+            "stage": "Пожелания",
+            "img": "",
+            "type": "textarea",
+            "selection_id": 6,
+            "required": 1,
+            "branch_id": null,
+            "answers": null
+          },
+          {
+            "id": 335,
             "host_id": null,
             "branch": 0,
             "index": 1,
@@ -666,14 +1208,14 @@
             "stage": "Возраст",
             "img": "",
             "type": "radio",
-            "selection_id": 4,
+            "selection_id": 6,
             "required": 1,
             "branch_id": null,
             "answers": [
               {
-                "id": 340,
-                "question_id": 219,
-                "branch_id": 220,
+                "id": 544,
+                "question_id": 335,
+                "branch_id": 336,
                 "host_id": null,
                 "answer": "Для взрослого",
                 "selection": 1,
@@ -684,9 +1226,9 @@
                 "initial_value": null
               },
               {
-                "id": 341,
-                "question_id": 219,
-                "branch_id": 222,
+                "id": 545,
+                "question_id": 335,
+                "branch_id": 337,
                 "host_id": null,
                 "answer": "Для ребенка",
                 "selection": 1,
@@ -699,21 +1241,48 @@
             ]
           },
           {
-            "id": 223,
+            "id": 343,
             "host_id": null,
             "branch": 0,
             "index": 2,
-            "title": "Оставьте свои пожелания",
-            "stage": "Пожелания",
+            "title": "Сколько скоростей интересует",
+            "stage": null,
             "img": "",
-            "type": "textarea",
-            "selection_id": 4,
+            "type": "radio",
+            "selection_id": 6,
             "required": 1,
             "branch_id": null,
-            "answers": null
+            "answers": [
+              {
+                "id": 569,
+                "question_id": 343,
+                "branch_id": null,
+                "host_id": null,
+                "answer": "Одна",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              },
+              {
+                "id": 570,
+                "question_id": 343,
+                "branch_id": 344,
+                "host_id": null,
+                "answer": "Много",
+                "selection": 1,
+                "img": "",
+                "min": null,
+                "max": null,
+                "step": null,
+                "initial_value": null
+              }
+            ]
           },
           {
-            "id": 224,
+            "id": 346,
             "host_id": null,
             "branch": 0,
             "index": 3,
@@ -721,7 +1290,7 @@
             "stage": "Фото",
             "img": "",
             "type": "image",
-            "selection_id": 4,
+            "selection_id": 6,
             "required": 1,
             "branch_id": null,
             "answers": null
@@ -836,8 +1405,11 @@
         function findParentIndex (id, originId) {
           // Сначала ищем среди основной линии, так как есть вероятность ранннего выхода
           const mainParent = mainQuestions.find((mainQuestion) => {
-            return mainQuestion.branch_id === id || mainQuestion.answers?.some(mainQuestionAnswer => mainQuestionAnswer.branch_id === id)
+            return mainQuestion.branch_id === id
+                || (Array.isArray(mainQuestion.answers) && mainQuestion.answers?.some(mainQuestionAnswer => mainQuestionAnswer.branch_id === id))
+                || mainQuestion.answers?.branch_id === id
           })
+          console.log(id, mainParent)
           if (mainParent) {
             branchParentIndexes[originId || id] = mainParent.index
             return
@@ -845,7 +1417,9 @@
           // Если не нашли в основной линии, ищем среди других веток, и далее повторяем,
           // пока не найдем родителя из основной линии
           const branchParent = branchQuestions.find((branchQuestion) => {
-            return branchQuestion.branch_id === id ||  branchQuestion.answers?.some(branchQuestionAnswer => branchQuestionAnswer.branch_id === id)
+            return branchQuestion.branch_id === id
+                || (Array.isArray(branchQuestion.answers) && branchQuestion.answers?.some(branchQuestionAnswer => branchQuestionAnswer.branch_id === id))
+                || branchQuestion.answers?.branch_id === id
           })
           if (branchParent) {
             return findParentIndex(branchParent.id, originId || id)
@@ -873,7 +1447,10 @@
         // Сохранение информации о родителях из основной ветки для вопросов,
         // заканчивающих ветки
         branchQuestions.forEach(({ id, answers, branch_id }) => {
-          if (!branch_id && !answers?.some(({ branch_id }) => branch_id)) {
+          if (!branch_id && Array.isArray(answers) && !answers?.some(({ branch_id }) => branch_id)) {
+            findParentIndex(id)
+          }
+          if (!answers?.branch_id) {
             findParentIndex(id)
           }
         })
@@ -897,6 +1474,7 @@
 
           // вопросы, у которых нет поля ответов или там не массив
           if (!answers || !Array.isArray(answers)) {
+            console.log(id, branchParentIndexes, originID)
             if (!targetID) {
               if (index) {
                 const nextIndex = questionIndexes[questionIndexes.indexOf(index) + 1]
@@ -913,6 +1491,7 @@
 
           // вопросы, у которых нет информации о следующей цели (либо окончание веток,
           // либо вопрос из основной линии, либо конец всей подборки)
+
           if (!branch_id && !answers?.some(({ branch_id }) => branch_id > 0)) {
             if (index) {
               const nextIndex = questionIndexes[questionIndexes.indexOf(index) + 1]
@@ -967,22 +1546,19 @@
   }
 
   #app {
-    width: ~"calc(100% - 40px)";
-    height: ~"calc(100% - 40px)";
-    padding: 20px 0 0 20px;
+    width: 100%;
+    height: 100%;
   }
 
   .container {
     width: 100%;
-    height: ~"calc(100% - 50px)";
-    border: 1px solid black;
+    height: 100%;
   }
 
   #contextMenu {
     position: absolute;
     z-index: 1000;
     background: white;
-    border: 1px solid black;
     padding: 5px;
     margin: 0;
 
